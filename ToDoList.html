@@ -1,0 +1,65 @@
+<html>
+        <body><html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" contents="width=device-width, initial-scale=1.0">
+<title>To Do List</title>
+</head>
+<body>
+<center>
+<h2>TO DO LIST</h2>
+<input type="text" id="taskInput">
+<button onclick="addTask()">Add Task</button>
+<ul id="taskList"></ul>
+</center>
+</body>
+</html>
+</body>
+        <style>ul{
+list-style-type:none;
+
+}
+li{
+background-color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+font-size:20px;
+border:2px solid blue;
+margin:20px;
+}
+body{
+background-image: url("https://plus.unsplash.com/premium_photo-1683309568772-57011d6c1b7b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dG8lMjBkbyUyMGxpc3R8ZW58MHx8MHx8fDA%3D");
+background-size:cover;
+background-repeat:no-repeat;
+}
+button{
+border-radius:5px;
+background-color:lightblue;
+}</style>
+        <script>function addTask(){
+var taskInput = document.getElementById("taskInput").value
+if (taskInput.trim() !==""){
+var listItem = document.createElement("li");
+var checkbox = document.createElement("input");
+checkbox.type = "checkbox";
+checkbox.onclick = toggleTask;
+var taskText = document.createElement("span");
+taskText.textContent = taskInput;
+var removeButton = document.createElement("button");
+removeButton.textContent = "Remove";
+removeButton.onclick = removeTask;
+listItem.appendChild(checkbox);
+listItem.appendChild(taskText);
+listItem.appendChild(removeButton);
+document.getElementById("taskList").appendChild(listItem)
+document.getElementById("taskInput").value = "";
+}
+}
+function toggleTask(){
+this.parentNode.classList.toggle("completed");
+}
+function removeTask(){
+this.parentNode.remove();
+}</script>
+      </html>
